@@ -39,6 +39,7 @@ class SerialPacket
 {
   public:
     SerialPacket();
+    SerialPacket(HardwareSerial& serial);
 
     void begin();
     void begin(long speed, uint8_t nodeID);
@@ -82,6 +83,8 @@ class SerialPacket
     boolean _inComingPacketComplete;
     char _inputChar[20];
     uint8_t _incomingCounter;
+
+    HardwareSerial& _serial;
 
     void sendPacket(uint8_t& payload);
     void sendPacket(int16_t& payload);
